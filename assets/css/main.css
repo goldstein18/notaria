@@ -2908,19 +2908,59 @@ section {
 }
 
 
-<!-- Pega este snippet DESPUÉS de tus hojas de estilo -->
-<style>
-  /* Muestra completa la imagen testamento.jpeg en el hero */
-  .hero img[src$="testamento.jpeg"]{
-    position: static !important;     /* evita posicionamiento absoluto del template */
-    display: block;
+/* Muestra completa la imagen testamento.jpeg en el hero */
+.hero img[src$="testamento.jpeg"] {
+  position: static !important;     /* evita posicionamiento absoluto del template */
+  display: block;
+  width: 100% !important;
+  height: auto !important;         /* mantiene proporción original */
+  max-height: 100vh;               /* usa toda la altura disponible */
+  object-fit: contain !important;  /* sin recortes */
+  object-position: center center;
+  margin: 0 auto;
+  background: #fff;                /* color de relleno opcional alrededor */
+  z-index: 1;
+}
+
+/* Ajustar el hero section cuando contiene la imagen testamento */
+.hero:has(img[src$="testamento.jpeg"]) {
+  min-height: auto !important;
+  padding: 0 !important;
+  display: block !important;
+  align-items: stretch !important;
+  justify-content: stretch !important;
+}
+
+/* Ajustes específicos para dispositivos móviles */
+@media (max-width: 768px) {
+  .hero img[src$="testamento.jpeg"] {
+    max-height: 80vh;              /* altura reducida en móvil */
     width: 100% !important;
-    height: auto !important;         /* mantiene proporción original */
-    max-height: 90vh;                /* ajusta si quieres verla más alta/baja */
-    object-fit: contain !important;  /* sin recortes */
+    height: auto !important;
+    object-fit: contain !important;
     object-position: center center;
-    margin: 0 auto;
-    background: #fff;                /* color de relleno opcional alrededor */
   }
-</style>
+}
+
+/* Ajustes para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero img[src$="testamento.jpeg"] {
+    max-height: 90vh;              /* altura intermedia para tablets */
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center center;
+  }
+}
+
+/* Ajustes para desktop */
+@media (min-width: 1025px) {
+  .hero img[src$="testamento.jpeg"] {
+    max-height: 100vh;             /* altura completa en desktop */
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center center;
+  }
+}
 

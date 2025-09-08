@@ -2906,3 +2906,21 @@ section {
   width: 100%;
   height: 100%;
 }
+
+
+<!-- Pega este snippet DESPUÉS de tus hojas de estilo -->
+<style>
+  /* Muestra completa la imagen testamento.jpeg en el hero */
+  .hero img[src$="testamento.jpeg"]{
+    position: static !important;     /* evita posicionamiento absoluto del template */
+    display: block;
+    width: 100% !important;
+    height: auto !important;         /* mantiene proporción original */
+    max-height: 90vh;                /* ajusta si quieres verla más alta/baja */
+    object-fit: contain !important;  /* sin recortes */
+    object-position: center center;
+    margin: 0 auto;
+    background: #fff;                /* color de relleno opcional alrededor */
+  }
+</style>
+
